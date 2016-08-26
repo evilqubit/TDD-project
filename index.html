@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io.connect('http://localhost:8080');
+socket.on('messages', function(data) {
+  
+  $('#pokemon').text(JSON.stringify(data))
+});
+  $(function(){
+
+$('form').on("submit",function(event){
+  event.preventDefault();
+  var form = $(this);
+  socket.emit('pokemon',$('#name').val())
+});
+
+  })
+</script>
+<body>
+  May Node and Express be with you.
+  <form id="form">
+  <input type="text" id='name' placeholder="name" name="Name">
+  <input type="Submit"/>
+</form>
+<div id = "pokemon">
+</div>
+</body>
+</html>
