@@ -16,6 +16,7 @@
     "url": "https://github.com/evilqubit/TDD-project/issues"
   },
   "dependencies": {
+    "async": "^2.0.1",
     "body-parser": "1.9.2",
     "express": "4.10.1",
     "mongoskin": "1.4.4",
